@@ -8,7 +8,7 @@ function ler(){
     xhttp.onreadystatechange = function(){
         if( this.readyState == 4 && this.status == 200){
             obj = JSON.parse( this.responseText );
-            obj.forEach( prod => {
+            obj.forEach( dado => {
                 if( document.getElementById("p" + prod.id ) == null ){
                     index = tabela.rows.length
                     row = tabela.insertRow(-1);
@@ -17,9 +17,9 @@ function ler(){
                     cellNOME = row.insertCell(1);
                     cellPRECO = row.insertCell(2);
                     cellEXCLUIR = row.insertCell(3);
-                    cellID.innerHTML = prod.id;
-                    cellNOME.innerHTML = prod.nome;
-                    cellPRECO.innerHTML = prod.preco;
+                    cellID.innerHTML = dado.idDia;
+                    cellNOME.innerHTML = dado.emocao;
+                    cellPRECO.innerHTML = dado.nivel;
                     cellEXCLUIR.innerHTML = 
                     "<button onclick='excluir(" + prod.id +")' >EXCLUIR</button>";
                 }

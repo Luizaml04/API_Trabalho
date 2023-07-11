@@ -1,0 +1,14 @@
+create database banco_emocoes;
+
+use banco_emocoes;
+
+create table tabela_emocoes(
+idDia int not null PRIMARY KEY auto_increment,
+emocao varchar(100) not null,
+nivel int not null
+);
+
+insert into tabela_emocoes(emocao, nivel) values 
+(raiva, 10)
+
+select * from tabela_emocoes;
