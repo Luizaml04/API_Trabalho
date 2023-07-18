@@ -1,10 +1,28 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-#titulo{
-    font-family: sans-serif;
-    color: purple;
-    margin-left: 7%;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: slateblue;
 }
+
+fieldset {
+    width: 420px;
+    background: purple;
+    color: #fff;
+    border-radius: 10px;
+    padding: 25px 30px;
+}
+
+fieldset h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
