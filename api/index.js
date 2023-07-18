@@ -1,11 +1,12 @@
 const restify = require("restify");
 const errors = require("restify-errors");
 
-//const corsMiddleware = require("restify-cors-middleware2");
+const corsMiddleware = require("restify-cors-middleware2");
 
-//const cors = corsMiddleware({
-//    origins: ['*']
-//});
+const cors = corsMiddleware({
+   origins: ['*']
+});
+
 const servidor = restify.createServer({
     name : 'Emocoes' ,
     version : '1.0.0'

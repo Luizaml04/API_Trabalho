@@ -6,11 +6,12 @@ font-family: "Poppins", sans-serif;
 }
 
 body {
+    background-image: url("img1.jpeg");
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: slateblue;
+    
     }
 
 .wrapper {

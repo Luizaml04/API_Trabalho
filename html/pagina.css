@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: slateblue;
+    background-image: url("img1.jpeg");
 }
 
 fieldset {

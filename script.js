@@ -57,5 +57,15 @@ function add() {
   xhttp.send(params);
 }
 
+function excluir( idDia ){
+  xhttp = new XMLHttpRequest();
 
+  xhttp.onreadystatechange = function(){
+      if( this.readyState == 4 && this.status == 200){
+          ler();
+      }
+  };
+  xhttp.open("DELETE" , "http://localhost:8001/emocoes/" + idDia, true);
+  xhttp.send();
+}
 
