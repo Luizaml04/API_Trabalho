@@ -21,21 +21,15 @@
         </div>
        
         <div class="emoji">
-            <label>Selecione a sua emoções:</label><br>
-            <input type="checkbox" id="emoções1" nome="emoções1" value="😀">
-            <label for="emoções1">😀</label>
-            <input type="checkbox" id="emoções2" nome="emoções2" value="🙂">
-            <label for="emoções2">🙂</label>
-            <input type="checkbox" id="emoções3" nome="emoções3" value="😐">
-            <label for="emoções3">😐</label>
-            <input type="checkbox" id="emoções4" nome="emoções4" value="😢">
-            <label for="emoções4">😢</label>
-            <input type="checkbox" id="emoções5" nome="emoções5" value="😭">
-            <label for="emoções5">😭</label>
-            <input type="checkbox" id="emoções6" nome="emoções6" value="😫">
-            <label for="emoções6">😫</label>
-            <input type="checkbox" id="emoções7" nome="emoções7" value="😡">
-            <label for="emoções7">😡</label>
+            <select name="selecaoEmocao">
+                <option value="Muito Feliz"selected>😀</option>
+                <option value="Feliz" >🙂</option>
+                <option value="Morno">😐</option>
+                <option value="Cansado">😢</option>
+                <option value="Triste demais">😭</option>
+                <option value="Triste">😫</option>
+                <option value="Irado">😡</option>
+            </select>
          </div>
         <br>
          <div class="numero">
@@ -43,11 +37,13 @@
             <label>Escolha de 1 a 10.</label><br>
             <input type="number" id="nivel" nome="nivel">
          </div>
-         <button class="botao" type="submit" onsubmit="">Concluído</button> 
+         <button class="botao" type="submit" onsubmit="add()">Concluído</button>
+         <button class="botao"><a href="Listagem.html">Atualizar listagem</a></button> 
+
 
     </fieldset>
 
     </form> 
-
+    <script src="../script.js"></script>
 </body>
 </html>
