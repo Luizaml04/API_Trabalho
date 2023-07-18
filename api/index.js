@@ -29,7 +29,7 @@ var knex = require('knex')({
     connection : {
         host : 'localhost' ,
         user : 'root' ,
-        password : '' ,
+        password : 'black71826' ,
         database : 'banco_emocoes'
     }
 });
@@ -44,24 +44,56 @@ servidor.get( '/emocoes' , (req, res, next) => {
     }, next) ; 
 });
 
-servidor.post( '/inserirEmocao' , (req, res, next) => {
+servidor.get('/emocoes/:idDia', (req, res, next) => {
+    const idDia = req.params.idDia;
     knex('tabela_emocoes')
-        .insert( req.body )
-        .then( (dados) =>{
-            res.send( dados );
-        }, next) ; 
-});
+      .where('idDia', idDia)
+      .first()
+      .then((dados) => {
+        if (!dados || dados === "") {
+          return res.status(400).send(new errors.BadRequestError('Dia não encontrado'));
+        }
+        res.send(dados);
+      })
+      .catch(next);
+  });
+  
+servidor.post('/inserirEmocao', (req, res, next) => {
+    knex('tabela_emocoes')
+      .insert(req.body)
+      .then((dados) => {
+        res.send(dados);
+      })
+      .catch(next);
+  });
 
-servidor.put( '/emocoes/id' , (req, res, next) => {
-    const id = req.params.id;
+  servidor.put( '/emocoes/:idDia' , (req, res, next) => {
+    const idDia = req.params.idDia;
     knex('tabela_emocoes')
-        .where( 'id' , id)
+        .where('idDia', idDia)
         .update( req.body )
         .then( (dados) =>{
             if( !dados ){
                 return res.send(
-                    new errors.BadRequestError('Produto não encontrado'));
+                    new errors.BadRequestError('Dia não encontrado'));
             }
-            res.send( "Produto Atualizado" );
+            res.send( "Emoção Atualizada" );
         }, next) ; 
 });
+
+servidor.del( '/emocoes/:idDia' , (req, res, next) => {
+    const idDia = req.params.idDia;
+    knex('tabela_emocoes')
+        .where('idDia', idDia)
+        .delete()
+        .then( (dados) =>{
+            if( !dados ){
+                return res.send(
+                    new errors.BadRequestError('Dia não encontrado'));
+            }
+            res.send( "Emoção Deletada" );
+        }, next) ; 
+});
+  
+
+  
